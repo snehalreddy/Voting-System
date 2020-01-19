@@ -1,0 +1,50 @@
+<!-- almost like html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Voting Site</title>
+
+    <!-- from firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAbQgirSa2I2hBFrOxXqHmaQr5CbFVjAV8",
+            authDomain: "voting-app-with-node.firebaseapp.com",
+            databaseURL: "https://voting-app-with-node.firebaseio.com",
+            projectId: "voting-app-with-node",
+            storageBucket: "voting-app-with-node.appspot.com",
+            messagingSenderId: "176510701920",
+            appId: "1:176510701920:web:27ffabd9df455b2fa14e05",
+            measurementId: "G-G0VS31BVPH"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+</head>
+
+<body>
+    <h1>Welcome to the voting app!</h1>
+    <p>Login with fire base</p>
+
+    <button onclick={signInWithGoogle()}>
+        Sign in with Google
+    </button>
+
+    <script src="js/firebaseAuth.js"></script>
+</body>
+
+</html>
