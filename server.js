@@ -13,6 +13,8 @@ var firebaseAdmin = admin.initializeApp({
     databaseURL: 'https://voting-app-with-node.firebaseio.com'
 })
 
+var database = firebaseAdmin.database()
+
 // create authentication middleware
 function isAuthenticated(req, res, next) {
     // check if the user is logged in
@@ -42,11 +44,22 @@ app.use(logger('dev'))
 // section for get and post
 app.get('/', (req, res) => {
     // res.send('<h1>Voting machine software...!</h1>')
-    res.render('home.ejs')
-})
 
-app.get('/homecoming-queen', isAuthenticated, (req, res) => {
-    res.render('homecomingQueen.ejs')
+    var restaurantsRef = database.ref('/restaurants')
+
+    restaurantsRef.once('value', (snapshot) => {
+        console.log(snapshot.val())
+
+        // sending all the data to the home.ejs file
+        var data = snapshot.val()
+        if(!data) {
+            data = {}
+        }
+
+        res.render('home.ejs', {
+            restaurants: data
+        })
+    })
 })
 
 app.post('/', (req, res) => {
