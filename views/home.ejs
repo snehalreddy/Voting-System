@@ -40,8 +40,11 @@
     <h1>Welcome to the voting app!</h1>
     <p>Login with fire base</p>
 
-    <button onclick={signInWithGoogle()}>
-        Sign in with Google
+    <button class="btn btn-primary" id="google-signin" onclick={signInWithGoogle()}>
+        Sign In With Google
+    </button>
+    <button class="btn btn-" id="signout" onclick={signOut()} style="display: none; visibility: hidden;">
+        Sign Out
     </button>
 
     <script src="js/firebaseAuth.js"></script>
